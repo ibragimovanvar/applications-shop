@@ -1,2 +1,5 @@
-package model.enums;public enum AppLanguage {
+package model.enums;
+
+public enum AppLanguage {
+    UZB, ENG, RUS
 }
