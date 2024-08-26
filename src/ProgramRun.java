@@ -23,6 +23,11 @@ public class ProgramRun {
             "RUS_REGISTER_SUCCESS", "Вы успешно регисьрирован нашего сервера!",
             "UZB_REGISTER_SUCCESS", "Foydalanuvchi muvaffaqiyatli ro'yxatdan o'tdi!"
     );
+    static Map<String, String> languageMap2 = Map.of(
+            "UZB_DEVELOPER_MENU", "1. Maxsulotni sotuvga qo'yish_2. Maxsulotni statusini o'zgartirish_3. Karta balansini tekshirish_4. Tizimdan chiqish",
+            "ENG_DEVELOPER_MENU", "1. Add product to the Market_2. Change status of the product_3. Check balance of the credit card_4. Exit system",
+            "RUS_DEVELOPER_MENU", "1. Добавить продукт на рынок_2. Изменить статус продукты_3. Проверить баланс карты_4. Выход из системы"
+    );
 
     static AppLanguage appLanguage = null;
 
@@ -79,10 +84,10 @@ public class ProgramRun {
                         while (true) {
                             switch (loggedUser.getRole()) {
                                 case DEVELOPER -> {
-                                    System.out.println("1. Maxsulotni sotuvga qo'yish");
-                                    System.out.println("2. Maxsulotni statusini o'zgartirish");
-                                    System.out.println("3. Karta balansini tekshirish");
-                                    System.out.println("4. Tizimdan chiqish");
+                                    System.out.println(languageMap2.get(langPrefix + "_DEVELOPER_MENU").split("_")[0]);
+                                    System.out.println(languageMap2.get(langPrefix + "_DEVELOPER_MENU").split("_")[1]);
+                                    System.out.println(languageMap2.get(langPrefix + "_DEVELOPER_MENU").split("_")[2]);
+                                    System.out.println(languageMap2.get(langPrefix + "_DEVELOPER_MENU").split("_")[3]);
                                     System.out.print("----------> ");
                                     int choice = inNum.nextInt();
                                     switch (choice) {
