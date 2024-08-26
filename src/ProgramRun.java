@@ -13,9 +13,9 @@ public class ProgramRun {
     static Scanner inNum = new Scanner(System.in);
     static Scanner inTxt = new Scanner(System.in);
     static Map<String, String> languageMap = Map.of(
-            "ENG_REGISTER", "PLEASE REGISTER OR LOGIN FIRST!\n1. REGISTER \n2. LOGIN",
-            "RUS_REGISTER", "Пожалуйста регистрируйте или сделайте логин!\n1. РЕГИСТРАТЦИЯ \n2. ЛОГИН",
-            "UZB_REGISTER", "Iltimos registratsiyadan o'ting yoki login qiling!\n1. REGISTRATSIYA \n2. LOGIN",
+            "ENG_REGISTER", "PLEASE REGISTER OR LOGIN FIRST!\n1. REGISTER \n2. LOGIN\n3. CHOOSE ANOTHER LANGUAGE",
+            "RUS_REGISTER", "Пожалуйста регистрируйте или сделайте логин!\n1. РЕГИСТРАТЦИЯ \n2. ЛОГИН\n3. ИЗМЕНИТЬ ЯЗЫК",
+            "UZB_REGISTER", "Iltimos registratsiyadan o'ting yoki login qiling!\n1. REGISTRATSIYA \n2. LOGIN\n3. TILNI ALISHTIRISH",
             "ENG_REGISTER_CHOICE", "Enter your fullname:_Enter your phone number:_Enter your password:_Are you developer ? (y/n):",
             "RUS_REGISTER_CHOICE", "Введите ваш имя фамилия:_Введите ваш номер:_Введите ваш пароль:_А вы программисты? (y/n):",
             "UZB_REGISTER_CHOICE", "Toliq ismizni kiriting:_Raqamizni kiriting:_Parolizni kiriting:_Siz dasturchimisiz ? (y/n):",
@@ -64,9 +64,9 @@ public class ProgramRun {
                     System.out.println(languageMap.get(langPrefix + "_REGISTER_SUCCESS"));
                 }
                 case 2 -> {
-                    System.out.print("Telefon raqamizni kiriitng:");
+                    System.out.print(languageMap.get(langPrefix + "_REGISTER_CHOICE").split("_")[1]);
                     String phoneNumber = inTxt.nextLine();
-                    System.out.print("Parolizni kiriitng:");
+                    System.out.print(languageMap.get(langPrefix + "_REGISTER_CHOICE").split("_")[2]);
                     String password = inTxt.nextLine();
                     User loggedUser = null;
                     for (User user : DatabaseObjects.users) {
@@ -134,6 +134,9 @@ public class ProgramRun {
                     } else {
                         System.out.println("Bunday foydalanuvchi bazadan topilmadi !");
                     }
+                }
+                case 3 -> {
+                    appLanguage = null;
                 }
             }
         }
